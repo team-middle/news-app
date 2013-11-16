@@ -2,10 +2,14 @@ NewsApp::Application.routes.draw do
 
   root 'posts#index'
 
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
 
-  resources :users
+  get '/user/:id' => 'users#show'
 
+
+  
   get '/posts/:id/upvote' => 'posts#upvote', :as => :upvote
 
   get '/auth/github' => 'sessions#create', :as => :login

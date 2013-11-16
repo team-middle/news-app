@@ -40,7 +40,7 @@ class PostsController < ApplicationController
 
   def upvote
     if !@post.user_upvoted?(current_user)
-      @post.upvote(current_user)
+      @post.upvoted_by(current_user)
       @post.save
     end
     # TODO: fix logic for checking whether a post has been upvoted by a user

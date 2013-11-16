@@ -1,8 +1,13 @@
 class Post < ActiveRecord::Base
   belongs_to :user
   has_many :user_upvoted_posts
-  
-  def upvote(user)
+  has_many :comments
+ 
+  def user_name
+    self.user.name if self.user
+  end
+
+  def upvoted_by(user)
     self.user_upvoted_posts.create(:user => user)
     self.upvotes += 1
   end
