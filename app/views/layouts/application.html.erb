@@ -7,6 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="command_prompt">
+    <p>[<%= Time.now.hour %>:<%= Time.now.min %>:<%= Time.now.sec %>] (master)</p>
+    <p>♥</p>
+  </div>
   <nav>
     <%= link_to "Home", root_path %>
     <%= link_to "New Post", new_post_path %>
