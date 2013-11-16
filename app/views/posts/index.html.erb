@@ -1,0 +1,34 @@
+<%= notice if notice %>
+<h1>Listing posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><-></th>
+      <th></th>
+      <th>Title</th>
+      <th>Link</th>
+      <th>Posted by:</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= link_to "⇪", upvote_path(post) %></td>
+        <td><%= post.upvotes %></td>
+        <td><%= link_to post.title, post_path(post) %></td>
+        <td><%= link_to post.link, "http://#{post.link}" %></td>
+        <td><%= post.user.name %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
